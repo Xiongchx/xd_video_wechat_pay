@@ -8,9 +8,12 @@
 package club.xiong.xdvideo.controller;
 
 import club.xiong.xdvideo.config.WeChatConfig;
+import club.xiong.xdvideo.mapper.VideoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -35,5 +38,13 @@ public class TestController {
     public String testConfig() {
         System.out.println(weChatConfig.getAppId());
         return "hello wechat!";
+    }
+
+    @Resource
+    private VideoMapper videoMapper;
+
+    @RequestMapping("test_db")
+    public Object testDB() {
+        return videoMapper.findAll();
     }
 }
