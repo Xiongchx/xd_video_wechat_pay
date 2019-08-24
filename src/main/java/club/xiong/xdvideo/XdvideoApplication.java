@@ -1,9 +1,11 @@
 package club.xiong.xdvideo;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@MapperScan("club.xiong.xdvideo.mapper")
 public class XdvideoApplication {
 
     public static void main(String[] args) {
