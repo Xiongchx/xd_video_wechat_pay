@@ -46,6 +46,15 @@
 			<artifactId>druid</artifactId>
 			<version>1.1.6</version>
 		</dependency>
+		<!-- 分页插件依赖 -->
+		<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.12</version>
+		</dependency>
+
+
 
 		<!--默认就有的依赖 另外：用什么包导什么包，否则依赖会出问题-->
 		<dependency>
