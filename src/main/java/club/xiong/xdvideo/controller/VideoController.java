@@ -27,36 +27,32 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+    /**
+     * 分页接口
+     *
+     * @param page 当前第几页，默认为第一页
+     * @param size 每页显示几条数据
+     * @return java.lang.Object
+     * @author 26917
+     * @date 2019/8/24 15:24
+     */
     @GetMapping("page")
-    public Object pageVideo() {
+    public Object pageVideo(@RequestParam(value = "page", defaultValue = "1") int page,
+                            @RequestParam(value = "size", defaultValue = "10") int size) {
         return videoService.findAll();
     }
 
-
+    /**
+     * 根据ID找视频
+     *
+     * @param videoId
+     * @return java.lang.Object
+     * @author 26917
+     * @date 2019/8/24 15:27
+     */
     @GetMapping("find_by_id")
-    public Object findById(int videoId) {
+    public Object findById(@RequestParam(value = "video_id", required = true) int videoId) {
         return videoService.findById(videoId);
     }
-
-    @DeleteMapping("del_by_id")
-    public Object delById(int videoId) {
-        return videoService.delete(videoId);
-    }
-
-    @PutMapping("update_by_id")
-    public Object update(int videoId, String title) {
-        Video video = new Video();
-        video.setId(videoId);
-        video.setTitle(title);
-        return videoService.update(video);
-    }
-
-    @PostMapping("save")
-    public Object save(String title) {
-        Video video = new Video();
-        video.setTitle(title);
-        return videoService.save(video);
-    }
-
 
 }
