@@ -8,9 +8,14 @@
 package club.xiong.xdvideo.controller;
 
 import club.xiong.xdvideo.domain.Video;
+import club.xiong.xdvideo.domain.VideoOrder;
 import club.xiong.xdvideo.service.VideoService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -39,7 +44,10 @@ public class VideoController {
     @GetMapping("page")
     public Object pageVideo(@RequestParam(value = "page", defaultValue = "1") int page,
                             @RequestParam(value = "size", defaultValue = "10") int size) {
-        return videoService.findAll();
+        PageHelper.startPage(page, size);
+        List<Video> list = videoService.findAll();
+        PageInfo<Video> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 
     /**
