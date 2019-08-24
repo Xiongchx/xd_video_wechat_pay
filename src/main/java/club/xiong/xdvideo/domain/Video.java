@@ -20,7 +20,7 @@ public class Video implements Serializable {
   private Integer price; // 价格,单位：分
   private java.util.Date createTime; // 创建时间
   private Integer online; // 0 未上线  1 上线
-  private double point; // 默认8.7  最高10分
+  private Double point; // 默认8.7  最高10分
 
 
   public Integer getId() {
@@ -95,11 +95,11 @@ public class Video implements Serializable {
   }
 
 
-  public double getPoint() {
+  public Double getPoint() {
     return point;
   }
 
-  public void setPoint(double point) {
+  public void setPoint(Double point) {
     this.point = point;
   }
 
