@@ -21,8 +21,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VideoController {
 
-    @RequestMapping("test")
-    public String test() {
-        return "hello world!";
-    }
 }
