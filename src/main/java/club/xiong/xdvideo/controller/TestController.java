@@ -8,6 +8,7 @@
 package club.xiong.xdvideo.controller;
 
 import club.xiong.xdvideo.config.WeChatConfig;
+import club.xiong.xdvideo.domain.JsonData;
 import club.xiong.xdvideo.mapper.VideoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,9 +36,8 @@ public class TestController {
     private WeChatConfig weChatConfig;
 
     @RequestMapping("test_config")
-    public String testConfig() {
-        System.out.println(weChatConfig.getAppId());
-        return "hello wechat!";
+    public JsonData testConfig() {
+        return JsonData.buildSuccess(weChatConfig.getAppId());
     }
 
     @Resource
